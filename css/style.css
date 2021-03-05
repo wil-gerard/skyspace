@@ -36,14 +36,14 @@ Foreground
   background-color: rgb(247, 247, 247);
   height: 100vh;
   width: 100vw;
-  transition: all 300s linear;
+  transition: all 30s linear;
 }
 
 .foreground-end{
   background-color: rgb(255,157,47);
   height: 100vh;
   width: 100vw;
-  transition: all 300s linear;
+  transition: all 30s linear;
 }
 /* --------------------
 Clip Path
