@@ -23,10 +23,6 @@ Box Model Hack
 Main Styles
 -------------------- */
 
-body {
-
-}
-
 /* --------------------
 Toolbar
 -------------------- */
@@ -43,7 +39,6 @@ Toolbar
   display: flex;
   justify-content: space-between;
 }
-
 
 /* --------------------
 Foreground
@@ -62,11 +57,12 @@ Foreground
   width: 100vw;
   transition: all 30s linear;
 }
+
 /* --------------------
 Clip Path
 -------------------- */
 
-.background {
+.diamond-aperture {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -75,5 +71,20 @@ Clip Path
   width: 60vw;
   background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  /* transition: all linear;
+  transition-delay: 20s; */
+}
+
+.elipse-aperture {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 90vh;
+  width: 60vw;
+  background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
+  clip-path: ellipse(250px 350px at center);
+  /* transition: all linear;
+  transition-delay: 20s; */
 }
 
