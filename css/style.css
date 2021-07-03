@@ -27,6 +27,23 @@ body {
 
 }
 
+/* --------------------
+Toolbar
+-------------------- */
+#toolbar {
+  position: absolute;
+  left: 25vw;
+  width: 50vw;
+  
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+  
+  background-color: lightgray;
+  
+  display: flex;
+  justify-content: space-between;
+}
+
 
 /* --------------------
 Foreground
