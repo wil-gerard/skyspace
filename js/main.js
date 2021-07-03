@@ -1,3 +1,13 @@
+// Aperture change function
+const aperture = document.querySelector('#aperture')
+
+document.querySelector('#aperture-btn').addEventListener('click', changeAperture)
+
+function changeAperture() {
+    aperture.classList.toggle('elipse-aperture');
+}
+
+// Foreground color shift
 const foreground = document.querySelector('#foreground');
 const interval = 1 * 30 * 1000; //30 seconds in milliseconds
 
@@ -31,21 +41,3 @@ function toggleToolbar() {
 }
 
 hideButton.addEventListener('click', toggleToolbar);
-
-// class IntervalTimer {
-//     constructor(interval) {
-//         this.interval = interval;
-//     }
-//     get getInterval() {
-//         return this.interval
-//     }
-//     cycleForegroundClass() {
-//         let foreground = document.querySelector('foreground');
-//         foreground.classList.toggle('foreground-start');
-//         foreground.classList.toggle('foreground-end');
-//         window.setTimeout(cycleForegroundClass, interval)
-//     }
-// }
-
-// let foregroundIntervalTimer = new IntervalTimer((30 * 1000))
-// foregroundIntervalTimer.cycleForegroundClass()
