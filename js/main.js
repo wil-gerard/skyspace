@@ -38,19 +38,42 @@ hideButton.addEventListener('click', toggleToolbar);
 /*----------------------------
 Aperture Buttons
 ----------------------------*/
-const aperture = document.querySelector('#aperture')
+const aperture = document.querySelector('#aperture');
+const ellipseClass = document.querySelector('.default-aperture-ellipse');
+const diamondClass = document.querySelector('.default-aperture-diamond');
 
-document.querySelector('#ellipse-aperture-btn').addEventListener('click', changeApertureToEllipse)
+// document.querySelector('#ellipse-aperture-btn').addEventListener('click', changeApertureToEllipse)
 document.querySelector('#diamond-aperture-btn').addEventListener('click', changeApertureToDiamond)
 
 function changeApertureToDiamond() {
-    if (aperture.classList != 'default-aperture ellipse-aperture'){
+    // aperture.classList === 'default-aperture-diamond' ? (aperture.classList.toggle('')) 
+
+    if ((aperture.classList != 'default-aperture-ellipse') && (aperture.classList != 'default-aperture-diamond diamond-aperture')){
         aperture.classList.toggle('diamond-aperture');
-    } 
+    } else if (aperture.classList === 'default-aperture-ellipse'){
+        aperture.classList.toggle('ellipse-aperture');
+    } else {
+        diamondClass.ontransitionend = () => {
+            aperture.classList.toggle('default-aperture-diamond')
+            aperture.classList.toggle('default-aperture-ellipse')
+        };
+        aperture.classList.toggle('diamond-aperture');
+    }
 }
 
-function changeApertureToEllipse() {
-    if (aperture.classList != 'default-aperture diamond-aperture'){
-        aperture.classList.toggle('ellipse-aperture');
-    } 
-}
+// function changeApertureToEllipse() {
+//     if (aperture.classList != 'default-aperture-diamond diamond-aperture'){
+//         aperture.classList.toggle('ellipse-aperture');
+//     } 
+// }
+
+// ellipseClass.ontransitionend = () => {
+//     aperture.classList.toggle('default-aperture-diamond')
+//     aperture.classList.toggle('default-aperture-ellipse')
+// }
+
+// diamondClass.ontransitionend = () => {
+//     aperture.classList.toggle('default-aperture-diamond')
+//     aperture.classList.toggle('default-aperture-ellipse')
+// }
+
