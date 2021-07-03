@@ -9,6 +9,29 @@ function cycleForegroundClass() {
 
 cycleForegroundClass();
 
+/*----------------------------
+Toolbar
+----------------------------*/
+
+const toolbar = document.querySelector('#toolbar');
+const hideButton = document.querySelector('#hide-btn');
+const upChar = '&and;';
+const downChar = '&or;';
+
+function hideToolbar() {
+    toolbar.classList.add('hidden');
+}
+
+function showToolbar() {
+    toolbar.classList.remove('hidden');
+}
+
+function toggleToolbar() {
+    toolbar.classList.toggle('hidden');
+}
+
+hideButton.addEventListener('click', toggleToolbar);
+
 // class IntervalTimer {
 //     constructor(interval) {
 //         this.interval = interval;
