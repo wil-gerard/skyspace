@@ -1,6 +1,7 @@
 /*----------------------------
 Foreground Color Shift
 ----------------------------*/
+
 const foreground = document.querySelector('#foreground');
 const interval = 1 * 30 * 1000; //30 seconds in milliseconds
 
@@ -38,50 +39,29 @@ hideButton.addEventListener('click', toggleToolbar);
 /*----------------------------
 Aperture Buttons
 ----------------------------*/
+
 const aperture = document.querySelector('#aperture');
-const ellipseClass = document.querySelector('.default-aperture-ellipse');
-const diamondClass = document.querySelector('.default-aperture-diamond');
 
-document.querySelector('#ellipse-aperture-btn').addEventListener('click', changeApertureToEllipse)
-document.querySelector('#diamond-aperture-btn').addEventListener('click', changeApertureToDiamond)
+document.querySelector('#change-aperture-btn').addEventListener('click', cycleApertureShape)
 
-function changeApertureToDiamond() {
-    // aperture.classList === 'default-aperture-diamond' ? (aperture.classList.toggle('')) 
-
-    if ((aperture.classList != 'default-aperture-ellipse') && (aperture.classList != 'default-aperture-diamond diamond-aperture')){
+function cycleApertureShape() {
+    if ((!aperture.classList.contains('diamond-aperture')) && (aperture.classList.contains('default-aperture-diamond'))){
         aperture.classList.toggle('diamond-aperture');
-    } else if (aperture.classList === 'default-aperture-ellipse'){
-        aperture.classList.toggle('ellipse-aperture');
-    } else {
-        diamondClass.ontransitionend = () => {
+    } else if ((aperture.classList.contains('default-aperture-diamond')) && (aperture.classList.contains('diamond-aperture'))){
+        aperture.classList.toggle('diamond-aperture');
+        aperture.ontransitionend = () => {
             aperture.classList.toggle('default-aperture-diamond');
             aperture.classList.toggle('default-aperture-ellipse');
+            aperture.ontransitionend = 'null';
         };
-        aperture.classList.toggle('diamond-aperture');
-    }
-}
-
-function changeApertureToEllipse() {
-    if (aperture.className === 'default-aperture-ellipse'){
+    } else if ((!aperture.classList.contains('ellipse-aperture')) && (aperture.classList.contains('default-aperture-ellipse'))){
         aperture.classList.toggle('ellipse-aperture');
-        console.log('working')
+    } else if ((aperture.classList.contains('ellipse-aperture')) && (aperture.classList.contains('default-aperture-ellipse'))){
+        aperture.classList.toggle('ellipse-aperture');
+        aperture.ontransitionend = () => {
+            aperture.classList.toggle('default-aperture-diamond');
+            aperture.classList.toggle('default-aperture-ellipse');
+            aperture.ontransitionend = 'null';
+        };
     }
-    // } else { 
-    //     ellipseClass.ontransitionend = () => {
-    //         aperture.classList.toggle('default-aperture-diamond')
-    //         aperture.classList.toggle('default-aperture-ellipse')
-    //     };
-    //     aperture.classList.toggle('ellipse-aperture');
-    // }
 }
-
-// ellipseClass.ontransitionend = () => {
-//     aperture.classList.toggle('default-aperture-diamond')
-//     aperture.classList.toggle('default-aperture-ellipse')
-// }
-
-// diamondClass.ontransitionend = () => {
-//     aperture.classList.toggle('default-aperture-diamond')
-//     aperture.classList.toggle('default-aperture-ellipse')
-// }
-
