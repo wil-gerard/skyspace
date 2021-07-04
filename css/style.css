@@ -77,43 +77,53 @@ Foreground
   background-color: rgb(247, 247, 247);
   height: 100vh;
   width: 100vw;
-  transition: all 30s linear;
+  transition: background-color 30s linear;
 }
 
 .foreground-end{
   background-color: rgb(255,157,47);
   height: 100vh;
   width: 100vw;
-  transition: all 30s linear;
+  transition: background-color 30s linear;
 }
 
 /* --------------------
-Clip Path
+Aperture
 -------------------- */
 
+.default-aperture {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 60vw;
+  background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
+  clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
+  transition: clip-path 20s linear;
+}
+
 .diamond-aperture {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 90vh;
-  width: 60vw;
-  background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  /* transition: all linear;
-  transition-delay: 20s; */
 }
 
-.elipse-aperture {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  height: 90vh;
-  width: 60vw;
-  background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
+.ellipse-aperture {
   clip-path: ellipse(250px 350px at center);
-  /* transition: all linear;
-  transition-delay: 20s; */
 }
 
+/* .diamond-aperture:hover {
+  clip-path: ellipse(250px 350px at center);
+  animation: 1s ellipse;
+  transition: clip-path 1s;
+}
+
+.ellipse-aperture:hover {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  animation: 1s ellipse;
+  transition: clip-path 1s;
+}
+
+@keyframes ellipse {
+  0% { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+  100% { clip-path: ellipse(250px 350px at center); }
+} */

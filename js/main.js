@@ -1,13 +1,6 @@
-// Aperture change function
-const aperture = document.querySelector('#aperture')
-
-document.querySelector('#aperture-btn').addEventListener('click', changeAperture)
-
-function changeAperture() {
-    aperture.classList.toggle('elipse-aperture');
-}
-
-// Foreground color shift
+/*----------------------------
+Foreground Color Shift
+----------------------------*/
 const foreground = document.querySelector('#foreground');
 const interval = 1 * 30 * 1000; //30 seconds in milliseconds
 
@@ -41,3 +34,23 @@ function toggleToolbar() {
 }
 
 hideButton.addEventListener('click', toggleToolbar);
+
+/*----------------------------
+Aperture Buttons
+----------------------------*/
+const aperture = document.querySelector('#aperture')
+
+document.querySelector('#ellipse-aperture-btn').addEventListener('click', changeApertureToEllipse)
+document.querySelector('#diamond-aperture-btn').addEventListener('click', changeApertureToDiamond)
+
+function changeApertureToDiamond() {
+    if (aperture.classList != 'default-aperture ellipse-aperture'){
+        aperture.classList.toggle('diamond-aperture');
+    } 
+}
+
+function changeApertureToEllipse() {
+    if (aperture.classList != 'default-aperture diamond-aperture'){
+        aperture.classList.toggle('ellipse-aperture');
+    } 
+}
