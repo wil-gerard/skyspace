@@ -23,6 +23,19 @@ Box Model Hack
 Main Styles
 -------------------- */
 
+* {
+  font-family: athelas, serif;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: 400;
+}
+
+p {
+  font-size: 1em;
+}
+
 /* --------------------
 Toolbar
 -------------------- */
@@ -32,7 +45,7 @@ Toolbar
   left: 25vw;
   width: 50vw;
   
-  padding: 5px;
+  padding: 50px;
   border-radius: 0 0 0 5px;
   
   background-color: lightgray;
@@ -41,6 +54,10 @@ Toolbar
   justify-content: space-between;
   
   transition: all 1s linear;
+}
+
+.toolbar-container {
+  display: flex;
 }
 
 #hide-btn {
@@ -67,6 +84,11 @@ Toolbar
   transform: rotate(180deg);
   
   transition: background-color 1s linear 1s, transform 0s linear 1s;
+}
+
+.description {
+  display: flex;
+
 }
 
 /* --------------------
@@ -96,8 +118,8 @@ Aperture
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  height: 80vh;
-  width: 60vw;
+  height: 70vh;
+  width: 50vw;
   background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
   clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
   transition: clip-path 3s linear;
@@ -108,8 +130,8 @@ Aperture
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  height: 80vh;
-  width: 60vw;
+  height: 70vh;
+  width: 50vw;
   background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
   clip-path: ellipse(75% 75% at center);
   transition: clip-path 3s linear;
@@ -120,9 +142,8 @@ Aperture
 }
 
 .ellipse-aperture {
-  clip-path: ellipse(250px 350px at center);
+  clip-path: ellipse(260px 330px at center);
 }
-
 
 
 /* .diamond-aperture:hover {
