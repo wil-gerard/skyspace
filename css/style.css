@@ -91,7 +91,7 @@ Foreground
 Aperture
 -------------------- */
 
-.default-aperture {
+.default-aperture-diamond {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -100,7 +100,19 @@ Aperture
   width: 60vw;
   background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
   clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
-  transition: clip-path 20s linear;
+  transition: clip-path 3s linear;
+}
+
+.default-aperture-ellipse {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 60vw;
+  background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
+  clip-path: ellipse(75% 75% at center);
+  transition: clip-path 3s linear;
 }
 
 .diamond-aperture {
@@ -110,6 +122,8 @@ Aperture
 .ellipse-aperture {
   clip-path: ellipse(250px 350px at center);
 }
+
+
 
 /* .diamond-aperture:hover {
   clip-path: ellipse(250px 350px at center);

@@ -1,6 +1,7 @@
 /*----------------------------
 Foreground Color Shift
 ----------------------------*/
+
 const foreground = document.querySelector('#foreground');
 const interval = 1 * 30 * 1000; //30 seconds in milliseconds
 
@@ -38,19 +39,29 @@ hideButton.addEventListener('click', toggleToolbar);
 /*----------------------------
 Aperture Buttons
 ----------------------------*/
-const aperture = document.querySelector('#aperture')
 
-document.querySelector('#ellipse-aperture-btn').addEventListener('click', changeApertureToEllipse)
-document.querySelector('#diamond-aperture-btn').addEventListener('click', changeApertureToDiamond)
+const aperture = document.querySelector('#aperture');
 
-function changeApertureToDiamond() {
-    if (aperture.classList != 'default-aperture ellipse-aperture'){
+document.querySelector('#change-aperture-btn').addEventListener('click', cycleApertureShape)
+
+function cycleApertureShape() {
+    if ((!aperture.classList.contains('diamond-aperture')) && (aperture.classList.contains('default-aperture-diamond'))){
         aperture.classList.toggle('diamond-aperture');
-    } 
-}
-
-function changeApertureToEllipse() {
-    if (aperture.classList != 'default-aperture diamond-aperture'){
+    } else if ((aperture.classList.contains('default-aperture-diamond')) && (aperture.classList.contains('diamond-aperture'))){
+        aperture.classList.toggle('diamond-aperture');
+        aperture.ontransitionend = () => {
+            aperture.classList.toggle('default-aperture-diamond');
+            aperture.classList.toggle('default-aperture-ellipse');
+            aperture.ontransitionend = 'null';
+        };
+    } else if ((!aperture.classList.contains('ellipse-aperture')) && (aperture.classList.contains('default-aperture-ellipse'))){
         aperture.classList.toggle('ellipse-aperture');
-    } 
+    } else if ((aperture.classList.contains('ellipse-aperture')) && (aperture.classList.contains('default-aperture-ellipse'))){
+        aperture.classList.toggle('ellipse-aperture');
+        aperture.ontransitionend = () => {
+            aperture.classList.toggle('default-aperture-diamond');
+            aperture.classList.toggle('default-aperture-ellipse');
+            aperture.ontransitionend = 'null';
+        };
+    }
 }
