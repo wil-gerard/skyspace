@@ -41,6 +41,7 @@ Aperture Buttons
 ----------------------------*/
 
 const aperture = document.querySelector('#aperture');
+const changeButton = document.querySelector('#change-aperture-btn')
 
 document.querySelector('#change-aperture-btn').addEventListener('click', cycleApertureShape)
 
@@ -49,19 +50,23 @@ function cycleApertureShape() {
         aperture.classList.toggle('diamond-aperture');
     } else if ((aperture.classList.contains('default-aperture-diamond')) && (aperture.classList.contains('diamond-aperture'))){
         aperture.classList.toggle('diamond-aperture');
+        changeButton.removeEventListener('click', cycleApertureShape)
         aperture.ontransitionend = () => {
             aperture.classList.toggle('default-aperture-diamond');
             aperture.classList.toggle('default-aperture-ellipse');
             aperture.ontransitionend = 'null';
+            changeButton.addEventListener('click', cycleApertureShape)
         };
     } else if ((!aperture.classList.contains('ellipse-aperture')) && (aperture.classList.contains('default-aperture-ellipse'))){
         aperture.classList.toggle('ellipse-aperture');
     } else if ((aperture.classList.contains('ellipse-aperture')) && (aperture.classList.contains('default-aperture-ellipse'))){
         aperture.classList.toggle('ellipse-aperture');
+        changeButton.removeEventListener('click', cycleApertureShape)
         aperture.ontransitionend = () => {
             aperture.classList.toggle('default-aperture-diamond');
             aperture.classList.toggle('default-aperture-ellipse');
             aperture.ontransitionend = 'null';
+            changeButton.addEventListener('click', cycleApertureShape)
         };
     }
 }
