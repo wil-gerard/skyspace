@@ -54,3 +54,27 @@ function changeApertureToEllipse() {
         aperture.classList.toggle('ellipse-aperture');
     } 
 }
+
+/*----------------------------
+Slider
+----------------------------*/
+
+const rgb1 = [151,176,255];
+const rgb2 = [197,151,255];
+
+const slider = document.querySelector('#time-input');
+
+function changeApertureColor(factor) {
+    let r = (rgb2[0] - rgb1[0]) * factor + rgb1[0];
+    let g = (rgb2[1] - rgb1[1]) * factor + rgb1[1];
+    let b = (rgb2[2] - rgb1[2]) * factor + rgb1[2];
+
+    aperture.style.backgroundColor = `rgb(${r},${g},${b})`;
+}
+
+// function changeApertureColor(num) {
+//     console.log(num);
+//     aperture.className = aperture.className.replace(/aperture-color-[\d]/, `aperture-color-${num}`);
+// }
+
+slider.addEventListener('input', (e) => { changeApertureColor(e.target.value); });

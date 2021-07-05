@@ -98,9 +98,17 @@ Aperture
   transform: translate(-50%, -50%);
   height: 80vh;
   width: 60vw;
-  background-image: linear-gradient(rgb(151,176,255), rgb(197,151,255));
+  
   clip-path: polygon(0 100%, 0 0, 100% 0, 100% 100%);
-  transition: clip-path 20s linear;
+  transition: clip-path 20s linear, ;
+}
+
+.aperture-color-1 {
+  background-color: rgb(151,176,255);
+}
+
+.aperture-color-2 {
+  background-color: rgb(197,151,255);
 }
 
 .diamond-aperture {
