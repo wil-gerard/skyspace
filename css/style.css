@@ -29,11 +29,18 @@ Main Styles
 
 h1 {
   font-size: 2em;
-  font-weight: 400;
+  font-weight: 600;
+  margin: 0;
 }
 
 p {
   font-size: 1em;
+  margin-top: 5px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
 }
 
 /* --------------------
@@ -42,23 +49,15 @@ Toolbar
 #toolbar {
   position: absolute;
   top: 0px;
-  left: 25vw;
-  width: 50vw;
-  
+  width: 75vw;
   padding: 20px;
   border-radius: 0 0 0 5px;
-  
-  background-color: lightgray;
-  
-  display: flex;
-  justify-content: space-between;
-  
+  background-color: whitesmoke;
   transition: all 1s linear;
 }
 
 .toolbar-container {
   display: flex;
-  flex-basis: 1;
 }
 
 #hide-btn {
@@ -67,34 +66,40 @@ Toolbar
   right: 0px;
   height: 15px;
   width: 30px;
-  
   border: 0;
   border-radius: 0 0 5px 5px;
-  
-  background-color: lightgray;
-  
+  background-color: whitesmoke;
    transition: background-color .25s linear 0s; 
 }
 
 #toolbar.hidden {
-  top: -35px;
+  top: -169px;
 }
 
 #toolbar.hidden >#hide-btn {
   background: none;
   transform: rotate(180deg);
-  
   transition: background-color 1s linear 1s, transform 0s linear 1s;
 }
 
-/* .description {
-
-} */
+.description {
+  flex-direction: column;
+  flex: 1;
+  margin-right: 15px;
+}
 
 .tools {
   display: flex;
-  width: 100%;
   flex-direction: column;
+  flex: 1;
+}
+
+#button-tools {
+  display: flex;
+}
+
+#button-tools button {
+  flex: 1;
 }
 
 /* --------------------
@@ -125,8 +130,8 @@ Aperture
   top: 50%;
   transform: translate(-50%, -50%);
   background-color: rgb(151,176,255);
-  height: 70vh;
-  width: 50vw;
+  height: 50vh;
+  width: 40vw;
   transition: clip-path 3s linear;
 }
 
@@ -143,23 +148,5 @@ Aperture
 }
 
 .ellipse-aperture {
-  clip-path: ellipse(260px 330px at center);
+  clip-path: ellipse(25% 50% at center);
 }
-
-
-/* .diamond-aperture:hover {
-  clip-path: ellipse(250px 350px at center);
-  animation: 1s ellipse;
-  transition: clip-path 1s;
-}
-
-.ellipse-aperture:hover {
-  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  animation: 1s ellipse;
-  transition: clip-path 1s;
-}
-
-@keyframes ellipse {
-  0% { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
-  100% { clip-path: ellipse(250px 350px at center); }
-} */
