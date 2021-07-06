@@ -15,13 +15,16 @@
 		<div id="toolbar" >
 			<div class="toolbar-container">
 				<div class="description">
-					<h1>Skyspace</h1>
-					<p>This app is inspired by the artwork of <a href="https://jamesturrell.com/">James Turrell.</a> A Skyspace is a specifically proportioned chamber with a round, ovular, or square aperture in the ceiling open to the sky. The lighting in the foreground changes as the sun sets and rises, making the sky seem close to the viewer.</p>
+					<h1>The Skyspace Project</h1>
+					<p>A <a href="https://jamesturrell.com/">Skyspace</a> is a chamber with an ovular or square aperture in the ceiling open to the sky. The lighting in the foreground changes as the sun sets and rises, the total effect creating an illusion that the sky is within reach. On the right you will find tools to explore this effect. This app is currently in development, visit our <a href="https://github.com/wil-gerard/skyspace">GitHub</a> page.</p>
 				</div>
 				<div class="tools">
+					<label for="time-input">Time Shift</label>
 					<input type="range" id="time-input" min="0" max="1" step="any">
-					<button id="change-aperture-btn">Change Aperture</button>
-					<button>Empty</button>
+					<div id="button-tools">
+						<button id="change-aperture-btn">Change Aperture</button>
+						<button id="cycle-colors-btn">Cycle Time</button>
+					</div>
 				</div>
 			</div>
 			<button id="hide-btn" class="tool-btn">^</button>
